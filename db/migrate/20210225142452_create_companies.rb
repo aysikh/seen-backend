@@ -6,7 +6,7 @@ class CreateCompanies < ActiveRecord::Migration[6.0]
       t.string :size
       t.string :location
       t.string :industry
-      t.integer :rating
+      t.integer :rating, :default => 0
 
       t.timestamps
     end
