@@ -14,18 +14,20 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
-    @location = Location.find(:location_id)
+    @user = User.create(
+      email: params[:email], 
+      firstname: params[:firstname],
+      lastname: params[:lastname], 
+      password: params[:password]
+    )
     if @user.save
       render json: {
         user: @user, 
         errors: false
       }
+
     else 
-      render json: {
-        errors: true,
-        info: ["user cannot be created"]
-      }
+      render json: @user.errors
     end
   end
 
