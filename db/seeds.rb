@@ -86,7 +86,7 @@ postmates = Company.create(
   description: "Anything, anytime, anywhere. Postmate it. Postmates is transforming the way goods move around cities by enabling anyone to have anything delivered on-demand. Our revolutionary Urban Logistics platform connects customers with local couriers who can deliver anything from any store or restaurant in minutes.",
   size: "1801",
   location: "San Francisco, CA",
-  industry: "Technology", 
+  industry: "Ecommerce", 
   logo: "https://cdn.builtinsf.com/cdn-cgi/image/fit=scale-down,sharpen=0.3,f=auto,q=100,w=170,h=170/sites/www.builtinsf.com/files/2020-04/Postmates.png"
 )
 
@@ -95,7 +95,7 @@ instacart = Company.create(
   description: "Instacart is the North American leader in online groceries and one of the fastest-growing companies in eCommerce. Instacart shoppers offer same-day delivery and pickup services to bring fresh groceries and everyday essentials to busy people and families across the U.S. and Canada.",
   size: "2900",
   location: "San Francisco, CA",
-  industry: "Technology",
+  industry: "Ecommerce",
   logo: "https://cdn.builtinsf.com/cdn-cgi/image/fit=scale-down,sharpen=0.3,f=auto,q=100,w=170,h=170/sites/www.builtinsf.com/files/2019-10/instacart.png"
 )
 
@@ -103,8 +103,8 @@ discord = Company.create(
   name: "Discord", 
   description: "Discord is the easiest place to communicate with communities and friends over voice, video, and text. Discord is a voice, video and text communication service to talk and hang out with your friends and communities. Discord is used by everyone from local hiking clubs, to art communities, to study groups and gives everyone the power to belong.",
   size: "505",
-  location: "San Francisco, CA"
-  industry: "Technology", 
+  location: "San Francisco, CA",
+  industry: "Software", 
   logo: "https://cdn.builtinsf.com/cdn-cgi/image/fit=scale-down,sharpen=0.3,f=auto,q=100,w=170,h=170/sites/www.builtinsf.com/files/2020-04/XCuWn8yF_400x400.jpg"
 )
 
@@ -113,7 +113,7 @@ crunchyroll = Company.create(
   description: "Crunchyroll is the world’s largest destination for anime and manga focused on creating 360° experiences — from video to merchandise, events, and gaming — for fans to connect through the content they love.", 
   size: "757",
   location: "San Francisco, CA", 
-  industry: "Technology", 
+  industry: "Ecommerce", 
   logo: "https://cdn.builtinsf.com/cdn-cgi/image/fit=scale-down,sharpen=0.3,f=auto,q=100,w=170,h=170/sites/www.builtinsf.com/files/2020-05/CR%20Orange%20LG%20JL.png"
 )
 
@@ -167,7 +167,7 @@ reddit = Company.create(
   description: "Reddit is a community of millions of users engaging in the creation of content and the sharing of conversation across tens of thousands of topics.", 
   size: "1475",
   location: "San Francisco, CA", 
-  industry: "Technology"
+  industry: "Technology",
   logo: "https://cdn.builtinsf.com/cdn-cgi/image/fit=scale-down,sharpen=0.3,f=auto,q=100,w=170,h=170/sites/www.builtinsf.com/files/2019-10/reddit.png"
 )
 
@@ -185,16 +185,50 @@ tinder = Company.create(
   description: "Tinder was introduced on a college campus in 2012 and is the world’s most popular app for meeting new people. Available in 190 countries and 40+ languages, it’s been downloaded more than 400 million times and led to 55 billion matches. Tinder has 6.6 million subscribers and is the highest grossing non-gaming app globally.",
   size: "610", 
   location: "San Francisco, CA", 
-  industry: "Technology", 
+  industry: "Social Media", 
   logo: "https://cdn.builtinsf.com/cdn-cgi/image/fit=scale-down,sharpen=0.3,f=auto,q=100,w=170,h=170/sites/www.builtinsf.com/files/2020-01/Tinder%20Logo.jpeg"
 )
 
 twitter = Company.create(
   name: "Twitter", 
-  description: "
-  Twitter is a global platform for public self-expression and conversation in real time. By developing a fundamentally new way for people to consume, create, distribute and discover content, Twitter enables any voice to echo around the world instantly and unfiltered. The service can be accessed at Twitter.com, on a variety of mobile devices, and via",
+  description: "Twitter is a global platform for public self-expression and conversation in real time. By developing a fundamentally new way for people to consume, create, distribute and discover content, Twitter enables any voice to echo around the world instantly and unfiltered. The service can be accessed at Twitter.com, on a variety of mobile devices, and via",
   size: "7500",
   location: "San Francisco, CA", 
-  industry: "Technology", 
+  industry: "Social Media", 
   logo: "https://cdn.builtinsf.com/cdn-cgi/image/fit=scale-down,sharpen=0.3,f=auto,q=100,w=170,h=170/sites/www.builtinsf.com/files/2020-04/twitter%20logo.png"
+)
+
+salesforce = Company.create(
+  name: "Salesforce", 
+  description: "Salesforce is the Customer Success Platform. Our social and mobile cloud technologies—including our flagship sales and CRM applications—help companies connect with customers, partners, and employees in entirely new ways.", 
+  size: "20000", 
+  location: "San Francisco, CA", 
+  industry: "Technology", 
+  logo: "https://cdn.builtinsf.com/cdn-cgi/image/fit=scale-down,sharpen=0.3,f=auto,q=100,w=170,h=170/sites/www.builtinsf.com/files/2020-05/salesforce.jpg"
+)
+
+facebook = Company.create(
+  name: "Facebook", 
+  description: "Founded in 2004, Facebook’s mission is to give people the power to build community and bring the world closer together. Over 2 billion people use Facebook, Instagram, WhatsApp, or Messenger every month to stay connected with friends and family, to discover what’s going on in the world, and to share and express what matters to them. At Facebook, we are constantly iterating, solving problems and working together to connect people all over the world. That’s why it’s important that our workforce reflects the diversity of the people we serve. Hiring people with different backgrounds and points of view helps us make better decisions, build better products and create better experiences for everyone.", 
+  size: "58604", 
+  location: "San Francisco, CA", 
+  industry: "Social Media", 
+  logo: "https://cdn.builtinsf.com/cdn-cgi/image/fit=scale-down,sharpen=0.3,f=auto,q=100,w=170,h=170/sites/www.builtinsf.com/files/2020-05/facebook%20logo.png"
+)
+
+calm = Company.create(
+  name: "Calm", 
+  description: "Calm is a leading global health and wellness brand with the #1 app for sleep, meditation and relaxation. With hundreds of hours of original audio content, the Calm app helps users cope with some of the most important mental health issues of the modern age including anxiety, stress and insomnia.", 
+  size: "185", 
+  location: "San Francisco, CA", 
+  industry: "Healthtech", 
+  logo: "https://cdn.builtinsf.com/cdn-cgi/image/fit=scale-down,sharpen=0.3,f=auto,q=100,w=170,h=170/sites/www.builtinsf.com/files/2019-09/calm.png"
+)
+
+wish = Company.create(
+  name: "Wish", 
+  description: "Wish is a mobile e-commerce platform that connects hundreds of millions of consumers with the widest selection of products delivered directly to their doors. Our mission is to provide everyone access to the most affordable and entertaining shopping experience on the planet.", 
+  size: "1300", 
+  industry: "eCommerce", 
+  logo: "https://cdn.builtinsf.com/cdn-cgi/image/fit=scale-down,sharpen=0.3,f=auto,q=100,w=170,h=170/sites/www.builtinsf.com/files/2019-10/wish.png"
 )

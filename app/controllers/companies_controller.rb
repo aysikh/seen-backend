@@ -7,6 +7,16 @@ class CompaniesController < ApplicationController
   end
 
   def show
+    @company = Company.find(params[:id])
+    if @company
+      render json: {
+        company: @company
+      }
+    else render json: {
+      status: 500, 
+      info: ["company not found"]
+    }
+    end
   end
 
   def new 
@@ -71,7 +81,7 @@ class CompaniesController < ApplicationController
   end
 
   def company_params
-    params.require(:company).permit(:name, :description, :location, :size, :industry, :rating)
+    params.require(:company).permit(:name, :description, :location, :size, :industry, :rating, :logo)
   end
 
 end
