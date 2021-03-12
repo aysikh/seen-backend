@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :find_company, only: [:show, :edit]
+  before_action :find_company, only: [:edit]
 
   def index
     @companies = Company.all
@@ -7,7 +7,7 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    @company = Company.find(params[:id])
+    @company = Company.find_by(name: params[:id].capitalize)
     if @company
       render json: {
         company: @company
