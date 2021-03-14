@@ -11,8 +11,8 @@ class CreateReviews < ActiveRecord::Migration[6.0]
       t.integer :rating
       t.boolean :isCurrentlyEmployed
       t.integer :yearsEmployed
-      t.integer :isUseful
-      t.integer :isNotUseful
+      t.integer :isUseful, :default => 0
+      t.integer :isNotUseful, :default => 0
 
       t.timestamps
     end

@@ -33,17 +33,17 @@ ActiveRecord::Schema.define(version: 2021_03_14_020756) do
     t.string "title"
     t.datetime "date"
     t.string "position"
-    t.integer "isUseful"
-    t.integer "isNotUseful"
+    t.integer "isUseful", default: 0
+    t.integer "isNotUseful", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "content"
-    t.float "diversity"
-    t.float "leadership"
-    t.float "worklife"
-    t.float "inclusiveness"
-    t.float "benefits"
-    t.float "recommendation"
+    t.float "diversity", default: 0.0
+    t.float "leadership", default: 0.0
+    t.float "worklife", default: 0.0
+    t.float "inclusiveness", default: 0.0
+    t.float "benefits", default: 0.0
+    t.float "recommendation", default: 0.0
   end
 
   create_table "users", force: :cascade do |t|

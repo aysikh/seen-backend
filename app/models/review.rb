@@ -4,8 +4,6 @@ class Review < ApplicationRecord
 
   validates :title, presence: true, length: {minimum: 1}
   validates :position, presence: true, length: {minimum: 1}
-  validates :rating, presence: true
-  validates :pros, presence: true, length: {minimum: 1}
-  validates :cons, presence: true, length: {minimum: 1}
+  validates :content, presence: true, length: {minimum: 50}
 
-end
+end 

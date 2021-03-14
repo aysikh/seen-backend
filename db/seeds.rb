@@ -232,3 +232,45 @@ wish = Company.create(
   industry: "eCommerce", 
   logo: "https://cdn.builtinsf.com/cdn-cgi/image/fit=scale-down,sharpen=0.3,f=auto,q=100,w=170,h=170/sites/www.builtinsf.com/files/2019-10/wish.png"
 )
+
+review1 = Review.create(
+  user_id: amy.id,
+  company_id: twitter.id,
+  title: "Hello", 
+  position: "Junior Software Engineer", 
+  content: "Lots of available opportunities and room to create your own growth. Twitter acts much like a start up still in ways, and i've found that you can grow and expend your career based on how willing you are to come up with business justification, find areas of improvement, etc", 
+  diversity: 4.5, 
+  leadership: 5, 
+  worklife: 4.5, 
+  inclusiveness: 4.5, 
+  benefits: 5, 
+  recommendation: 5
+)
+
+review2 = Review.create(
+  user_id: darwin.id,
+  company_id: twitter.id,
+  title: "Cool people (mostly)", 
+  position: "Project Manager", 
+  content: "Unlimited PTO, Health plan, Coworkers (some), Food, Work-life balance", 
+  diversity: 3.5, 
+  leadership: 3.5, 
+  worklife: 5, 
+  inclusiveness: 5, 
+  benefits: 4.5, 
+  recommendation: 4
+)
+
+review3 = Review.create(
+  user_id: malaika.id,
+  company_id: twitter.id,
+  title: "Awesome place", 
+  position: "UI/UX designer", 
+  content: "Collaborative, caring environment. Leadership is transparent.", 
+  diversity: 5, 
+  leadership: 4, 
+  worklife: 4, 
+  inclusiveness: 3.5, 
+  benefits: 4.5, 
+  recommendation: 4.5
+)

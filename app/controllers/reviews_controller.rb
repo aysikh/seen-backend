@@ -73,8 +73,9 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
   end
 
+  # isUseful, isNotUseful, and date is not included in the params
   def review_params
-    params.require(:review).permit(:title, :date, :position, :pros, :cons, :rating, :isCurrentlyEmployed, :yearsEmployed, :isUseful, :isNotUseful, :user_id, :company_id)
+    params.require(:review).permit(:title, :position, :content, :diversity, :leadership, :worklife, :inclusiveness, :benefits, :recommendation, :user_id, :company_id)
   end
 
 end
