@@ -1,0 +1,5 @@
+class RemoveYearsEmployedFromReviews < ActiveRecord::Migration[6.0]
+  def change
+    remove_column :reviews, :yearsEmployed, :integer
+  end
+end
