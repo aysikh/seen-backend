@@ -8,7 +8,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
     @reviews = @user.reviews.uniq
+    cookies["user_page"] = @user.id
   end
 
   def new
@@ -16,23 +18,35 @@ class UsersController < ApplicationController
   end
   
   def login
+    user = User.find_by(email: params[:email])
+    if user && user.authenticate(params[:password])
+      render json: {
+      # session[:user_id] = user.id
+      info: user
+      }
+    else
+      render json: {
+      info: ["Email and password is invalid. Try again."]
+    }
+    end
   end
 
   def process_login
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect_to "/"
+      render json: {
+        info: user
+      # session[:user_id] = user.id
+      }
     else
-      flash[:no_user] = "Email and password is invalid. Try again."
-      redirect_to "/log-in"
+      render json: {
+      info: [ "Email and password is invalid. Try again." ]
+    }
     end
   end
 
   def logout
     session.clear
-    redirect_to 'log-in'
-    flash = "You have successfully logged out."
   end
 
   def profile
@@ -61,7 +75,6 @@ class UsersController < ApplicationController
         user: @user, 
         errors: false
       }
-
     else 
       render json: @user.errors
     end

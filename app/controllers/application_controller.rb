@@ -23,8 +23,6 @@ class ApplicationController < ActionController::API
   def authorized
     @user == current_user
     if !logged_in?
-      flash[:notice] = "You must log in"
-      redirect_to '/log-in'
     end
   end
 

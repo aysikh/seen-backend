@@ -53,16 +53,6 @@ benchling = Company.create(
 
   # https://www.builtinsf.com/company/benchling
 
-sensortower = Company.create(
-  name: "Sensor Tower", 
-  description: "Sensor Tower helps businesses navigate the multi-billion dollar mobile app ecosystem. We're on a mission: To Be the Trusted Source of Mobile Insights. We provide investors, mobile app developers, and brands with the competitive data they need to be successful in the mobile ecosystem. We serve independent and Fortune 500 customers alike, spanning mobile gaming, travel & hospitality, finance, and entertainment verticals.",
-  size: "50-100",
-  location: "San Francisco, CA", 
-  industry: "Technology",
-  logo: "https://cdn.builtinsf.com/cdn-cgi/image/fit=scale-down,sharpen=0.3,f=auto,q=100,w=170,h=170/sites/www.builtinsf.com/files/2019-10/1010065_674848569210259_1273132433_n.png"
-) 
-  # https://www.builtinsf.com/company/sensor-tower
-
 niantic = Company.create(
   name: "Niantic",
   description: "Niantic is the world’s leading AR technology company, sparking creative and engaging journeys in the real world. Our products inspire outdoor exploration, exercise, and meaningful social interaction. Originally formed at Google in 2010, we became an independent company in 2014 with a strong group of investors including Nintendo, The Pokémon Company",
@@ -124,15 +114,6 @@ freshworks = Company.create(
   location: "San Mateo, CA", 
   industry: "Technology", 
   logo: "https://cdn.builtinsf.com/cdn-cgi/image/fit=scale-down,sharpen=0.3,f=auto,q=100,w=170,h=170/sites/www.builtinsf.com/files/2019-12/Freshworks%20logo.png"
-)
-
-vsco = Company.create(
-  name: "VSCO",
-  description: "VSCO builds creative tools, spaces and connections driven by self-expression. Helping people around the world unlock their creative potential, the company continues to innovate with VSCO Membership, an annual subscription that offers advanced editing features, inspiring editorial content, and immersive community experiences.",
-  size: "152", 
-  location: "Oakland, CA", 
-  industry: "Mobile",
-  logo: "https://cdn.builtinsf.com/cdn-cgi/image/fit=scale-down,sharpen=0.3,f=auto,q=100,w=170,h=170/sites/www.builtinsf.com/files/2020-05/VSCO.png"
 )
 
 dropbox = Company.create(
