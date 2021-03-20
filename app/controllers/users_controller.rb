@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :find_user, only: [:show, :edit]
-  before_action :authorized, except: [:process_login, :new, :create]
+  # before_action :authorized, except: [:process_login, :new, :create]
+  # before_action :authorized, only: [:auto_login]
 
   def index
     @users = User.all
@@ -17,32 +18,22 @@ class UsersController < ApplicationController
     @user = User.create
   end
   
+  #Logging in
   def login
-    user = User.find_by(email: params[:email])
-    if user && user.authenticate(params[:password])
-      render json: {
+    @user = User.find_by(email: params[:email])
+    if @user && @user.authenticate(params[:password])
+      token = encode_token({user_id: @user.id})
+      render json: {user: @user, token: token}
       # session[:user_id] = user.id
-      info: user
-      }
+      # info: user
     else
-      render json: {
-      info: ["Email and password is invalid. Try again."]
-    }
+      render json: {error: "Email and password is invalid. Try again."}
     end
   end
 
-  def process_login
-    user = User.find_by(email: params[:email])
-    if user && user.authenticate(params[:password])
-      render json: {
-        info: user
-      # session[:user_id] = user.id
-      }
-    else
-      render json: {
-      info: [ "Email and password is invalid. Try again." ]
-    }
-    end
+  # returns the user object as JSON assuming the user has previously logged in
+  def auto_login
+    render json: @user_id
   end
 
   def logout
@@ -51,7 +42,7 @@ class UsersController < ApplicationController
 
   def profile
     @user = User.find_by(id: session[:user_id])
-    reivews = params["user"]["reviews"]
+    reviews = params["user"]["reviews"]
     reviews.shift
     reviews.each do |review|
       @user.reviews << Review.find(review.to_i)
@@ -63,6 +54,7 @@ class UsersController < ApplicationController
     end
   end
   
+  # Register
   def create
     @user = User.create(
       email: params[:email], 
@@ -70,13 +62,14 @@ class UsersController < ApplicationController
       lastname: params[:lastname], 
       password: params[:password]
     )
-    if @user.save
+    if @user.valid?
+      token = encode_token({user_id: @user.id})
       render json: {
         user: @user, 
-        errors: false
+        token: token
       }
     else 
-      render json: @user.errors
+      render json: {error: "Invalid email or password"}
     end
   end
 
@@ -94,7 +87,7 @@ class UsersController < ApplicationController
     else
       render json: {
         errors: true, 
-        info: ["user cannot be updated"]
+        message: ["user cannot be updated"]
       }
     end
   end
@@ -112,7 +105,7 @@ class UsersController < ApplicationController
       render json: {
         success: false, 
         errors: false, 
-        info: ["cannot delete user"]
+        message: ["cannot delete user"]
       }
     end
   end

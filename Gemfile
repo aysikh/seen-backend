@@ -15,6 +15,11 @@ gem 'puma', '~> 4.1'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+# Encrypts strings, will be used to encrypt new user passwords and verify where passwords at login match the encrypted password in our database.
+gem 'jwt'
+# Json Web Tokens (JWT) are often issued when a user successfully logs in containing encrypted information such as username. 
+# Our API will look for JWT tokens in request headers to know the request is authorized to access certain data. (So I login get a token, 
+# I send the token when I request my notes and this tells the API which user I am and that I’m properly logged in)
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -24,6 +29,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
+# This will allow us to manage Cross Origin Resource Sharing (CORS) and determine which URLs are allowed to make requests to our server
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

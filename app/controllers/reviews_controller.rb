@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  # before_action :authorized #in order to write a review, you have to be logged in
   before_action :find_review, only: [:show, :edit]
 
   def index
