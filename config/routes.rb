@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  resources :reviews
+  get '/company/:name/reviews', to: 'reviews#index'
+  resources :reviews, only: [:new, :create, :edit, :update, :destroy]
   resources :companies
   resources :users
+
 
   post '/login', to: 'users#login', as: 'login'
   get '/auto_login', to: 'users#auto_login'
@@ -10,3 +12,7 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
+
+# get 'phone_views/:action' , :controller => 'phone_views'
+
+# post '/tournament/:id', to: 'tournaments#show'

@@ -3,11 +3,12 @@ class CompaniesController < ApplicationController
 
   def index
     @companies = Company.all
-    render json: @companies
+    render json: @companies.to_json( {include: :reviews})
   end
 
   def show
     @company = Company.find_by(name: params[:id].capitalize)
+    @reviews = @company.reviews.uniq
     if @company
       render json: {
         company: @company

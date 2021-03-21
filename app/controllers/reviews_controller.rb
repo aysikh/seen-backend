@@ -3,7 +3,9 @@ class ReviewsController < ApplicationController
   before_action :find_review, only: [:show, :edit]
 
   def index
-    @reviews = Review.all
+    # byebug
+    company = params[:name].capitalize
+    @reviews = Company.find_by(name: company).reviews
     render json: @reviews
   end
 

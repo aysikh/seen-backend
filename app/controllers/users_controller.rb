@@ -22,9 +22,9 @@ class UsersController < ApplicationController
   def login
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
+      session[:user_id] = user.id
       token = encode_token({user_id: @user.id})
       render json: {user: @user, token: token}
-      # session[:user_id] = user.id
       # info: user
     else
       render json: {error: "Email and password is invalid. Try again."}
