@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   def login
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
-      session[:user_id] = user.id
+      session[:user_id] = @user.id
       token = encode_token({user_id: @user.id})
       render json: {user: @user, token: token}
       # info: user
@@ -109,6 +109,12 @@ class UsersController < ApplicationController
       }
     end
   end
+
+  # def token_authenticate
+  #   token = request.headers["Authenticate"]
+  #   @user = User.find(decode(token)["user_id"])
+  #   render json: @user
+  # end
 
   private
 

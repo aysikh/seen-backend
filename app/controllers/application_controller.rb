@@ -31,25 +31,37 @@ class ApplicationController < ActionController::API
   # end
 
   def encode_token(payload)
-    JWT.encode(payload, 'yourSecret')
+    JWT.encode(payload, 'seen')
   end
 
-  def auth_header
-    # { Authorization: 'Bearer <token>' }
-    request.headers['Authorization']
-  end
+  # def secret_key
+  #   "seen"
+  # end
+
+  # def auth_header
+  #   # { Authorization: 'Bearer <token>' }
+  #   request.headers['Authorization']
+  # end
+
+  # def encode(payload)
+  #   JWT.encode(payload, secret_key, 'HS256')
+  # end
 
   def decoded_token
     if auth_header
       token = auth_header.split(' ')[1]
       # header: { 'Authorization': 'Bearer <token>' }
       begin
-        JWT.decode(token, 'yourSecret', true, algorithm: 'HS256')
+        JWT.decode(token, 'seen', true, algorithm: 'HS256')
       rescue JWT::DecodeError
         nil
       end
     end
   end
+
+  # def decode(token)
+  #   JWT.decode(token, "seen", true, {algorithm: 'HS256'})[0]
+  # end
 
   def logged_in_user
     if decoded_token

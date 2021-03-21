@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
 
   post '/login', to: 'users#login', as: 'login'
+  # get '/login', to: 'users@token_authenticate'
+
   get '/auto_login', to: 'users#auto_login'
   # post 'login', to: 'user#create'
   post '/sesssion' => 'sessions#create' 
