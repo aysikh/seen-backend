@@ -255,3 +255,145 @@ review3 = Review.create(
   benefits: 4.5, 
   recommendation: 4.5
 )
+
+Review.create(
+  user_id: amy.id,
+  company_id: life360.id,
+  title: "Awesome place", 
+  position: "senior developer", 
+  content: "Collaborative, caring environment. Leadership is transparent.", 
+  diversity: 5, 
+  leadership: 4, 
+  worklife: 4, 
+  inclusiveness: 3.5, 
+  benefits: 4.5, 
+  recommendation: 4.5
+)
+
+Review.create(
+  user_id: amy.id,
+  company_id: benchling.id,
+  title: "Awesome place", 
+  position: "jr software engineer", 
+  content: "Collaborative, caring environment. Leadership is transparent.", 
+  diversity: 5, 
+  leadership: 4, 
+  worklife: 4, 
+  inclusiveness: 3.5, 
+  benefits: 4.5, 
+  recommendation: 4.5
+)
+
+Review.create(
+  user_id: amy.id,
+  company_id: facebook.id,
+  title: "Awesome place", 
+  position: "jr software engineer", 
+  content: "Collaborative, caring environment. Leadership is transparent.", 
+  diversity: 5, 
+  leadership: 4, 
+  worklife: 4, 
+  inclusiveness: 3.5, 
+  benefits: 4.5, 
+  recommendation: 4.5
+)
+
+Review.create(
+  user_id: amy.id,
+  company_id: discord.id,
+  title: "Awesome place", 
+  position: "jr software engineer", 
+  content: "Collaborative, caring environment. Leadership is transparent.", 
+  diversity: 5, 
+  leadership: 4, 
+  worklife: 4, 
+  inclusiveness: 3.5, 
+  benefits: 4.5, 
+  recommendation: 4.5
+)
+
+Review.create(
+  user_id: amy.id,
+  company_id: tinder.id,
+  title: "Awesome place", 
+  position: "jr software engineer", 
+  content: "Collaborative, caring environment. Leadership is transparent.", 
+  diversity: 5, 
+  leadership: 4, 
+  worklife: 4, 
+  inclusiveness: 3.5, 
+  benefits: 4.5, 
+  recommendation: 4.5
+)
+
+Review.create(
+  user_id: darwin.id,
+  company_id: benchling.id,
+  title: "Cool people (mostly)", 
+  position: "Project Manager", 
+  content: "Unlimited PTO, Health plan, Coworkers (some), Food, Work-life balance", 
+  diversity: 3.5, 
+  leadership: 3.5, 
+  worklife: 5, 
+  inclusiveness: 5, 
+  benefits: 4.5, 
+  recommendation: 4
+)
+
+
+Review.create(
+  user_id: darwin.id,
+  company_id: facebook.id,
+  title: "Cool people (mostly)", 
+  position: "Project Manager", 
+  content: "Unlimited PTO, Health plan, Coworkers (some), Food, Work-life balance", 
+  diversity: 3.5, 
+  leadership: 3.5, 
+  worklife: 5, 
+  inclusiveness: 5, 
+  benefits: 4.5, 
+  recommendation: 4
+)
+
+
+Review.create(
+  user_id: darwin.id,
+  company_id: life360.id,
+  title: "Cool people (mostly)", 
+  position: "Project Manager", 
+  content: "Unlimited PTO, Health plan, Coworkers (some), Food, Work-life balance", 
+  diversity: 2.5, 
+  leadership: 3.5, 
+  worklife: 3, 
+  inclusiveness: 5, 
+  benefits: 3.5, 
+  recommendation: 4
+)
+
+Review.create(
+  user_id: malaika.id,
+  company_id: crunchyroll.id,
+  title: "Awesome place", 
+  position: "UI/UX designer", 
+  content: "Collaborative, caring environment. Leadership is transparent.", 
+  diversity: 5, 
+  leadership: 5, 
+  worklife: 5, 
+  inclusiveness: 5, 
+  benefits: 4.5, 
+  recommendation: 4.5
+)
+
+Review.create(
+  user_id: malaika.id,
+  company_id: postmates.id,
+  title: "Awesome place", 
+  position: "UI/UX designer", 
+  content: "Collaborative, caring environment. Leadership is transparent.", 
+  diversity: 2, 
+  leadership: 4, 
+  worklife: 3, 
+  inclusiveness: 3.5, 
+  benefits: 5, 
+  recommendation: 5
+)
