@@ -3,7 +3,6 @@ class ReviewsController < ApplicationController
   before_action :find_review, only: [:show, :edit]
 
   def index
-    # byebug
     company = params[:name].capitalize
     @reviews = Company.find_by(name: company).reviews
     render json: @reviews
@@ -18,8 +17,8 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.create(review_params)
-    @user= User.find(:user_id)
-    @company = Company.find(:company_id)
+    @user= User.find(params[:user_id])
+    @company = Company.find(params[:company_id])
     if @review.save
       render json: {
         review: @review, 
@@ -28,7 +27,8 @@ class ReviewsController < ApplicationController
     else 
       render json: {
         errors: true,
-        info: ["review cannot be created"]
+        info: ["review cannot be created"],
+        message: @review.errors.full_messages
       }
     end
   end

@@ -5,13 +5,23 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    render json: @users
+    render json: @users.to_json(include: [:reviews])
   end
 
   def show
     @user = User.find(params[:id])
-    @reviews = @user.reviews.uniq
-    cookies["user_page"] = @user.id
+    @reviews = @user.reviews
+    # cookies["user_page"] = @user.id
+    if @user
+      render json: {
+        user: @user, 
+        reviews: @reviews
+        }
+    else render json: {
+      status: 500, 
+      info: ["You do not have any reviews yet"]
+      }
+    end
   end
 
   def new
@@ -21,10 +31,11 @@ class UsersController < ApplicationController
   #Logging in
   def login
     @user = User.find_by(email: params[:email])
+    @reviews = @user.reviews
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       token = encode_token({user_id: @user.id})
-      render json: {user: @user, token: token}
+      render json: {user: @user, token: token, reviews: @reviews} 
       # info: user
     else
       render json: {error: "Email and password is invalid. Try again."}
