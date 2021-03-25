@@ -38,10 +38,10 @@ class ApplicationController < ActionController::API
   #   "seen"
   # end
 
-  # def auth_header
-  #   # { Authorization: 'Bearer <token>' }
-  #   request.headers['Authorization']
-  # end
+  def auth_header
+    # { Authorization: 'Bearer <token>' }
+    request.headers['Authorization']
+  end
 
   # def encode(payload)
   #   JWT.encode(payload, secret_key, 'HS256')

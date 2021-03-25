@@ -12,22 +12,22 @@ Review.destroy_all
 
 amy = User.create(
   email: "amy@gmail.com", 
-  firstname: "amy", 
-  lastname: "sikhammountry", 
+  firstname: "Amy", 
+  lastname: "Sikhammountry", 
   password: "nugget"
 )
 
 malaika = User.create(
   email: "malaika@gmail.com", 
-  firstname: "malaika", 
-  lastname: "english", 
+  firstname: "Malaika", 
+  lastname: "English", 
   password: "123"
 )
 
 darwin = User.create(
   email: "darwin@gmail.com", 
-  firstname: "darwin", 
-  lastname: "irby", 
+  firstname: "Darwin", 
+  lastname: "Kirby", 
   password: "123"
 )
 

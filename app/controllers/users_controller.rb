@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:show, :edit]
+  # before_action :find_user, only: [:edit]
   # before_action :authorized, except: [:process_login, :new, :create]
   # before_action :authorized, only: [:auto_login]
 
@@ -9,20 +9,41 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    token = decoded_token
+    # byebug
+    @user = User.find((token)[0]["user_id"])
     @reviews = @user.reviews
-    # cookies["user_page"] = @user.id
-    if @user
-      render json: {
-        user: @user, 
-        reviews: @reviews
+    if @user 
+        render json: {
+            auth: true,
+            user: @user,
+            reviews: @reviews, 
+            token: encode_token({user_id: @user.id})
         }
-    else render json: {
-      status: 500, 
-      info: ["You do not have any reviews yet"]
-      }
+    else
+        render json: {
+            auth: false,
+            info: ["Not a valid user"]
+        }
     end
   end
+
+  # def show
+
+  #   @user = User.find(params[:id])
+  #   @reviews = @user.reviews
+  #   # cookies["user_page"] = @user.id
+  #   if @user
+  #     render json: {
+  #       user: @user, 
+  #       reviews: @reviews
+  #       }
+  #   else render json: {
+  #     status: 500, 
+  #     info: ["You do not have any reviews yet"]
+  #     }
+  #   end
+  # end
 
   def new
     @user = User.create
@@ -36,11 +57,12 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       token = encode_token({user_id: @user.id})
       render json: {user: @user, token: token, reviews: @reviews} 
-      # info: user
     else
       render json: {error: "Email and password is invalid. Try again."}
     end
   end
+
+
 
   # returns the user object as JSON assuming the user has previously logged in
   def auto_login
