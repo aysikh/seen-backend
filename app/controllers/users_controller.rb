@@ -12,8 +12,8 @@ class UsersController < ApplicationController
     token = decoded_token
     # byebug
     @user = User.find((token)[0]["user_id"])
-    @reviews = @user.reviews
     if @user 
+      @reviews = @user.reviews
         render json: {
             auth: true,
             user: @user,
@@ -52,17 +52,15 @@ class UsersController < ApplicationController
   #Logging in
   def login
     @user = User.find_by(email: params[:email])
-    @reviews = @user.reviews
     if @user && @user.authenticate(params[:password])
+      @reviews = @user.reviews
       session[:user_id] = @user.id
       token = encode_token({user_id: @user.id})
       render json: {user: @user, token: token, reviews: @reviews} 
     else
-      render json: {error: "Email and password is invalid. Try again."}
+      render json: {error: "Invalid email and password."}
     end
   end
-
-
 
   # returns the user object as JSON assuming the user has previously logged in
   def auto_login
@@ -75,12 +73,12 @@ class UsersController < ApplicationController
 
   def profile
     @user = User.find_by(id: session[:user_id])
-    reviews = params["user"]["reviews"]
-    reviews.shift
-    reviews.each do |review|
-      @user.reviews << Review.find(review.to_i)
-    end
     if @user.save
+      reviews = params["user"]["reviews"]
+      reviews.shift
+      reviews.each do |review|
+        @user.reviews << Review.find(review.to_i)
+      end
       redirect_to user_path(@user.id)
     else
       render :new

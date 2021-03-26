@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get '/company/:name/reviews', to: 'reviews#index'
   resources :reviews, only: [:new, :create, :edit, :update, :destroy]
   resources :companies
-  resources :users, only: [:new, :create]
+  resources :users, only: [:index, :new, :create]
 
   get '/user/show', to: 'users#show'
   
